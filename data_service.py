@@ -15,10 +15,11 @@ def get_tovaroobig():
 
     for line in tovaroobig_list:
         line_list = line.split(';')
-        line_list[0] = float(line_list[0])
-        line_list[1] = float(line_list[1])
-        line_list[2] = float(line_list[2])
-        line_list[3] = float(line_list[3])
+        line_list[3] = line_list[3][:-1]  # Видаляє '\n' в кінці
+       # line_list[0] = float(line_list[0])
+       # line_list[1] = float(line_list[1])
+       # line_list[2] = float(line_list[2])
+       # line_list[3] = float(line_list[3])
         tovaroobig_drive.append(line_list)
 
 
