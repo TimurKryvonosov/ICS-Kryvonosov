@@ -35,6 +35,22 @@ def income_gross():
 
         for dovidnik in dovidniks:
             if dovidnik[0] == dovidnik_code:
+                return dovidnik[1]
+
+        return "*** Код засобу не знайдений"
+    
+    def get_dovidnik_discount(dovidnik_discount):
+        """ Повертає скидку товару по його коду
+
+        Args:
+            dovidnik_discount ([type]): код засоба
+
+        Returns:
+            [type]: скидка товару
+        """
+
+        for dovidnik in dovidniks:
+            if dovidnik[0] == dovidnik_discount:
                 return dovidnik[2]
 
         return "*** Код засобу не знайдений"
@@ -50,10 +66,10 @@ def income_gross():
         income_tmp['year'] = tovaroobig[3]
         income_tmp['plan_1'] = tovaroobig[1]
         income_tmp['inplementation_1'] = tovaroobig[2]
+        income_tmp['name_product'] = get_dovidnik_name(tovaroobig[0])
+        income_tmp['discount'] = get_dovidnik_discount(tovaroobig[0])
         income_tmp['plan_2'] = float(income_tmp['plan_1']) * float(income_tmp['discount']) 
         income_tmp['inplementation_2'] = float(income_tmp['inplementation_1']) * float(income_tmp['discount'])
-        income_tmp['name_product'] = get_dovidnik_name(tovaroobig[2])
-        income_tmp['discount'] = get_dovidnik_name(tovaroobig[0])
 
         income_list.append(income_tmp)
 
